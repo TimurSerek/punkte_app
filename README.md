@@ -1,16 +1,11 @@
 # punkte_app
 
-A new Flutter project.
+UI 6 часов
+GraphQL 2 часа
+Логика, исправление багов 10 часов
 
-## Getting Started
+Не реализовал web версию ChargingPointDetailsScreen
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+P.S. мне понравилось ваше приложение Punkt E и ребята которые проводили собеседование, 
+поэтому мне очень интересна эта вакансия, жду от вас ответа, спасибо
+telegram: timur_serek
