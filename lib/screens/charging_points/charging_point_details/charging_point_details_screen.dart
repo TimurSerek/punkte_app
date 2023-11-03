@@ -1,15 +1,15 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:punkte_app/core/resources/colors.dart';
 import 'package:punkte_app/core/resources/media_res.dart';
+import 'package:punkte_app/core/resources/strings.dart';
 import 'package:punkte_app/core/resources/text_styles.dart';
 import 'package:punkte_app/screens/charging_points/models/charging_points_model.dart';
 
 import 'charging_point_details_controller.dart';
 
 class ChargingPointDetailsScreen extends StatelessWidget {
-   ChargingPointDetailsScreen({Key? key}) : super(key: key);
+   const ChargingPointDetailsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +50,7 @@ class _AppBar extends StatelessWidget implements PreferredSizeWidget {
             onPressed: () {},
             splashColor: Colors.transparent,
             splashRadius: 1,
-            icon: Icon(
+            icon: const Icon(
               Icons.favorite_border,
               color: AppColors.black,
               size: 30,
@@ -178,7 +178,7 @@ class _ChargingPointID extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Text('ID ЭЗС ', style: AppTextStyles.size15RegularRobotoFGrey),
+        const Text(AppStrings.chargingPointID, style: AppTextStyles.size15RegularRobotoFGrey),
         Text(number, style: AppTextStyles.size15RegularRoboto),
       ],
     );
@@ -201,7 +201,14 @@ class _ChargingPointType extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text(title, style: AppTextStyles.size15BoldRoboto),
+        Container(
+          constraints: BoxConstraints(
+            maxWidth: MediaQuery.of(context).size.width / 2,
+          ),
+          child: Text(title,
+              overflow: TextOverflow.ellipsis,
+              style: AppTextStyles.size15BoldRoboto),
+        ),
         const SizedBox(width: 20),
         Container(
           padding: const EdgeInsets.all(5),
@@ -217,7 +224,7 @@ class _ChargingPointType extends StatelessWidget {
         ),
         const SizedBox(width: 10),
         Text(
-          '$power кВт',
+          '$power ${AppStrings.kvt}',
           style: AppTextStyles.size15RegularRoboto,
         )
       ],
@@ -241,7 +248,7 @@ class _WorkTime extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         const Text(
-          'Время работы',
+          AppStrings.workTime,
           style: AppTextStyles.size15RegularRobotoFGrey,
         ),
         SizedBox(
@@ -309,7 +316,7 @@ class _Address extends StatelessWidget {
       textBaseline: TextBaseline.alphabetic,
       children: [
         const Text(
-          'Адрес',
+          AppStrings.address,
           style: AppTextStyles.size15RegularRobotoFGrey,
         ),
         SizedBox(
@@ -360,7 +367,7 @@ class _Parking extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         const Text(
-          'Парковка',
+          AppStrings.parking,
           style: AppTextStyles.size15RegularRobotoFGrey,
         ),
         SizedBox(
@@ -417,11 +424,12 @@ class _ItemList extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               _ConnectorStatus(status: connector?.status),
-              _ConnectorImage(image: MediaRes.connector),
+              //не нашел поле image connector в GraphQL
+              const _ConnectorImage(image: MediaRes.connector),
               _ConnectorDescription(
                 id: connector?.typeId,
                 name: '${connector?.typeName}',
-                power: '${connector?.tariffs.first.price} ₽/кВт*ч',
+                power: '${connector?.tariffs.first.price} ${AppStrings.tariff}',
               ),
             ],
           )),

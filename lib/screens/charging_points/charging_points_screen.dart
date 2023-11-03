@@ -126,7 +126,7 @@ class _ListItem extends StatelessWidget {
                             backgroundColor: AppColors.white,
                             textColor: AppColors.black,
                             title:
-                                '${chargingPoint?.connectors.first.tariffs.first.price.toString()} ₽/кВт*ч'),
+                                '${chargingPoint?.connectors.first.tariffs.first.price.toString()} ${AppStrings.search}'),
                       ],
                     ),
                     const SizedBox(width: 4),
@@ -145,7 +145,6 @@ class _ListItem extends StatelessWidget {
                   ],
                 ),
               ),
-              //IconButton(onPressed: (){}, icon: Icon(Icons.favorite, color: AppColors.yellow)),
               const SizedBox(width: 20),
             ],
           ),
